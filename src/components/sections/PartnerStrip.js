@@ -4,9 +4,8 @@ export default function PartnerStrip() {
   const partners = [
     { name: 'GNIT Kolkata' },
     { name: 'IEEE Kolkata' },
-    { name: 'Research Hub' },
-    { name: 'Health-AI' },
-    { name: 'Society 6.0' }
+    { name: 'ADSOC 6.0' },
+    { name: 'JIS GROUP' },
   ];
 
   // Duplicate elements a few times to ensure the screen is filled and scroll is seamless

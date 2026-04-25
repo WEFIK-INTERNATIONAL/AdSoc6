@@ -1,5 +1,6 @@
 import { SITE_CONFIG } from '@/constants/site';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Hero() {
   return (
@@ -98,7 +99,7 @@ export default function Hero() {
         {/* Organiser */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left gap-1">
           <p className="mono text-[8px] text-primary font-bold tracking-[3px] uppercase">Organiser</p>
-          <p className="text-white font-heading text-xs sm:text-sm tracking-wide">Dept. of CSE & EE — GNIT</p>
+          <p className="text-white font-heading text-xs sm:text-sm tracking-wide">Dept. of CSE — GNIT</p>
         </div>
         
         <div className="hidden md:block w-px h-10 bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
@@ -112,15 +113,11 @@ export default function Hero() {
         <div className="hidden md:block w-px h-10 bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
 
         {/* IEEE Sponsor */}
-        <div className="flex flex-col items-center md:items-end text-center md:text-right gap-1">
+        <div className="flex flex-col items-center md:items-left text-center md:text-right gap-1">
            <p className="mono text-[8px] text-slate-400 font-bold tracking-[3px] uppercase">Co-Sponsored</p>
-           <p className="text-white font-heading text-xs sm:text-sm tracking-wide flex items-center justify-center md:justify-end gap-2">
-              <span className="relative flex h-1.5 w-1.5 shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary"></span>
-              </span>
-              IEEE Kolkata Section
-           </p>
+           <div className="mt-1 relative w-32 h-6 md:w-45 md:h-12 flex items-center justify-center md:justify-center">
+              <Image src="/ieeelogoedit.png" alt="IEEE Logo" fill className="object-contain object-center" />
+           </div>
         </div>
 
       </div>

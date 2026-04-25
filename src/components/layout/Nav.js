@@ -93,14 +93,10 @@ export default function Nav() {
 
           {/* CTA & Hamburger */}
           <div className="flex items-center gap-3 relative z-110">
-            <Link
-              href={SITE_CONFIG.googleFormLink}
-              target="_blank"
-              className="hidden sm:block px-5 py-1.5 bg-accent text-white font-medium rounded-lg text-lg tracking-[2px] shadow-lg shadow-accent/20 hover:bg-accent hover:shadow-accent/40 hover:scale-105 active:scale-95 transition-all border border-accent/40 relative overflow-hidden group/btn"
-            >
-              <span className="relative z-10">REGISTER</span>
-              <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700 skew-x-[-20deg]"></div>
-            </Link>
+            <div className="hidden sm:flex items-center gap-6">
+              <Image src="/jisgroup.png" alt="JIS Group Logo" width={50} height={50} className="object-contain" />
+              <Image src="/GNIT.png" alt="GNIT Logo" width={55} height={55} className="object-contain" />
+            </div>
 
             <button
               className="lg:hidden w-9 h-9 flex flex-col items-center justify-center gap-[5px] text-white focus:outline-none"
@@ -181,14 +177,10 @@ export default function Nav() {
                 </div>
               ))}
               
-              <Link 
-                href={SITE_CONFIG.googleFormLink}
-                target="_blank"
-                className="mt-8 block w-full py-5 bg-primary text-white text-center font-bold rounded-2xl shadow-xl shadow-primary/20 mono text-[10px] tracking-[3px]"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                REGISTER NOW
-              </Link>
+              <div className="mt-8 flex justify-center items-center gap-8 py-6 bg-background/50 rounded-2xl border border-white/5">
+                <Image src="/jisgroup.png" alt="JIS Group Logo" width={60} height={60} className="object-contain" />
+                <Image src="/GNIT.png" alt="GNIT Logo" width={60} height={60} className="object-contain" />
+              </div>
             </div>
           </div>
         </div>
