@@ -6,11 +6,11 @@ export default function Footer() {
   return (
     <footer className="bg-background pt-24 pb-12 px-6 relative overflow-hidden border-t border-primary/10">
       {/* Background Decorative */}
-      <div className="absolute inset-0 medical-grid opacity-20"></div>
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] -z-10"></div>
+      <div className="absolute inset-0 medical-grid opacity-20 pointer-events-none"></div>
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
       
-      <div className="container mx-auto max-w-7xl">
+      <div className="container mx-auto max-w-7xl relative z-10">
         <div className="grid md:grid-cols-4 gap-12 mb-20">
           <div className="col-span-2">
             <div className="flex items-center gap-4 mb-8">
@@ -29,9 +29,9 @@ export default function Footer() {
               The premier International Conference on AI-Driven Smart Healthcare for Society 6.0. 
               Bridging researchers, clinicians, and innovators globally.
             </p>
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-3 md:gap-4">
               {['LinkedIn', 'Twitter', 'YouTube'].map((social) => (
-                <div key={social} className="px-6 py-2.5 rounded-2xl border border-white/5 text-slate-400 mono text-[9px] font-bold tracking-[2px] hover:border-primary/50 hover:text-white transition-all cursor-pointer bg-background/5">
+                <div key={social} className="px-6 py-2.5 rounded-2xl border border-white/5 text-slate-400 mono text-[9px] font-bold tracking-[2px] hover:border-primary/50 hover:text-white transition-all cursor-pointer bg-background/5 text-center">
                   {social.toUpperCase()}
                 </div>
               ))}
@@ -52,9 +52,9 @@ export default function Footer() {
           <div>
             <h4 className="mono text-primary mb-10 font-bold tracking-[4px] text-[10px]">HEADQUARTERS</h4>
             <div className="space-y-8">
-              <div>
+              <div className="break-words">
                 <p className="text-[9px] mono text-slate-500 mb-3 font-bold tracking-[2px]">PROTOCOL EMAIL</p>
-                <p className="text-white text-lg font-body border-b border-white/5 pb-2">adsoc6@gnit.ac.in</p>
+                <p className="text-white text-lg font-body border-b border-white/5 pb-2 break-all">adsoc6@gnit.ac.in</p>
               </div>
               <div>
                 <p className="text-[9px] mono text-slate-500 mb-3 font-bold tracking-[2px]">LOCATION</p>
@@ -65,13 +65,13 @@ export default function Footer() {
         </div>
 
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-          <p className="text-[10px] text-slate-500 mono tracking-widest font-bold">
+          <p className="text-[10px] text-slate-500 mono tracking-widest font-bold text-center md:text-left leading-relaxed">
             &copy; 2026 ADSoC 6.0 | RESEARCH HUB - GNIT KOLKATA.
           </p>
-          <div className="flex items-center gap-8">
-            <span className="mono text-[10px] text-primary/60 font-bold uppercase tracking-[3px]">TECHNICAL CO-SPONSOR</span>
-            <div className="px-5 py-3 glass-dark border border-white/10 rounded-2xl flex items-center gap-4">
-              <span className="text-sm font-bold text-white tracking-wide">IEEE KOLKATA SECTION</span>
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+            <span className="mono text-[10px] text-primary/60 font-bold uppercase tracking-[3px] text-center">TECHNICAL CO-SPONSOR</span>
+            <div className="px-5 py-3 glass-dark border border-white/10 rounded-2xl flex items-center gap-4 w-full justify-center md:w-auto">
+              <span className="text-sm font-bold text-white tracking-wide text-center">IEEE KOLKATA SECTION</span>
             </div>
           </div>
         </div>
