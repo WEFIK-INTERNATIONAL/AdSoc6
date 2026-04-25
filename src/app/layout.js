@@ -5,6 +5,7 @@ import {
     pangramSans,
 } from './fonts';
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata = {
   title: "ADSoC 6.0 | AI-Driven Smart Healthcare for Society 6.0",
@@ -17,7 +18,11 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${goodMonolith.variable} ${ppNeueMontreal.variable} ${bigShouldersDisplay.variable} ${pangramSans.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col font-body">{children}</body>
+      <body className="min-h-full flex flex-col font-body">
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
+      </body>
     </html>
   );
 }

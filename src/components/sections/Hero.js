@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="relative min-h-[100dvh] pt-28 pb-8 flex flex-col items-center justify-between overflow-hidden bg-background font-body text-center px-4 w-full">
 
       {/* Premium Gradient Background System */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-background">
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-background bg-gradient-to-r from-primary/10 via-secondary/5 to-accent/10">
         
         {/* Soft immersive glow nodes (Animated) */}
         <div className="absolute inset-0 opacity-[0.15]">
@@ -45,14 +45,14 @@ export default function Hero() {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
           </span>
           <p className="mono text-emerald-400 font-bold tracking-[2px] md:tracking-[3px] text-[8px] md:text-[10px] uppercase">
-            Registrations Open &bull; Jan 24–25, 2026
+           Jan 24-25, 2026
           </p>
         </div>
 
         {/* Typography Stack */}
         <div className="flex flex-col items-center gap-3 w-full px-2">
           <p className="mono font-bold text-primary tracking-[4px] md:tracking-[6px] text-[8px] md:text-[11px] uppercase opacity-90 drop-shadow-md">
-            6th International Conference
+           ( ADSoC 6.0 )
           </p>
           
           <h1 className="font-heading text-white leading-[1.1] text-[clamp(2.2rem,8vw,5.5rem)] tracking-tight drop-shadow-2xl max-w-4xl mx-auto">
@@ -60,10 +60,6 @@ export default function Hero() {
             <br className="hidden sm:block" />
             <span className="text-gradient-primary"> for Society 6.0</span>
           </h1>
-          
-          <p className="mono font-bold text-slate-400 tracking-[5px] md:tracking-[8px] text-[9px] md:text-[10px] uppercase mt-1 md:mt-2 drop-shadow-md">
-            ( ADSoC 6.0 )
-          </p>
         </div>
 
         {/* Button Stack: Responsive stack on mobile, row on larger */}
@@ -96,38 +92,35 @@ export default function Hero() {
 
       </div>
 
-      {/* Footer Details: Flows naturally at the bottom now */}
-      <div className="relative z-10 w-full px-4 flex flex-col md:flex-row justify-center items-center gap-3 md:gap-12 opacity-90 border-t border-white/5 pt-5 md:pt-6 mx-auto max-w-5xl">
+      {/* Footer Details: Premium Glass Pill Container */}
+      <div className="relative z-10 w-full max-w-4xl px-6 md:px-10 py-4 md:py-5 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 mx-auto mt-8 md:mt-12 rounded-2xl glass-dark shadow-[0_0_40px_rgba(0,0,0,0.5)] border border-white/5">
         
         {/* Organiser */}
-        <div className="text-center md:text-left flex flex-col md:flex-row md:items-center gap-1 md:gap-4">
-          <div className="hidden md:block w-px h-8 bg-primary/30"></div>
-          <div>
-            <p className="hidden md:block mono text-[7px] text-primary font-bold tracking-[3px] uppercase md:mb-0.5">Organiser</p>
-            <p className="text-white font-heading text-xs sm:text-sm tracking-wide">Dept. of CSE & EE — GNIT</p>
-          </div>
+        <div className="flex flex-col items-center md:items-start text-center md:text-left gap-1">
+          <p className="mono text-[8px] text-primary font-bold tracking-[3px] uppercase">Organiser</p>
+          <p className="text-white font-heading text-xs sm:text-sm tracking-wide">Dept. of CSE & EE — GNIT</p>
         </div>
         
-        <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-white/10"></div>
+        <div className="hidden md:block w-px h-10 bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
 
         {/* Location & Meta */}
-        <div className="text-center md:text-left">
-          <p className="hidden md:block mono text-[7px] text-slate-400 font-bold tracking-[3px] uppercase mb-0.5">Location & Details</p>
-          <p className="text-slate-400 md:text-slate-300 font-body text-[9px] sm:text-xs">NAAC &apos;A+&apos; • NBA Accredited • Kolkata</p>
+        <div className="flex flex-col items-center text-center gap-1">
+          <p className="mono text-[8px] text-slate-400 font-bold tracking-[3px] uppercase">Location & Details</p>
+          <p className="text-slate-300 font-body text-[10px] sm:text-xs">NAAC &apos;A+&apos; • NBA Accredited • Kolkata</p>
         </div>
 
-        <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-white/10"></div>
+        <div className="hidden md:block w-px h-10 bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
 
         {/* IEEE Sponsor */}
-        <div className="text-center md:text-left flex flex-col md:flex-row md:items-center gap-1 md:gap-4">
-           <div>
-             <p className="hidden md:block mono text-[7px] text-slate-400 font-bold tracking-[3px] uppercase mb-0.5">Co-Sponsored</p>
-             <p className="text-slate-200 md:text-slate-100 font-heading text-xs sm:text-sm tracking-wide flex justify-center items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-                IEEE Kolkata Section
-             </p>
-           </div>
-           <div className="hidden md:block w-px h-8 bg-primary/30"></div>
+        <div className="flex flex-col items-center md:items-end text-center md:text-right gap-1">
+           <p className="mono text-[8px] text-slate-400 font-bold tracking-[3px] uppercase">Co-Sponsored</p>
+           <p className="text-white font-heading text-xs sm:text-sm tracking-wide flex items-center justify-center md:justify-end gap-2">
+              <span className="relative flex h-1.5 w-1.5 shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary"></span>
+              </span>
+              IEEE Kolkata Section
+           </p>
         </div>
 
       </div>

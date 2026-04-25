@@ -15,58 +15,41 @@ export default function Home() {
         <Hero />
         <PartnerStrip />
 
-        {/* Multi-Page Portal: Research Focus */}
-        <Section className="py-24 px-6 bg-background relative neural-pattern overflow-hidden">
-          <div className="absolute inset-0 medical-grid opacity-10"></div>
-          <div className="bg-glow-primary -top-40 -left-40 opacity-40"></div>
-          <div className="container mx-auto max-w-7xl relative z-10">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-              <div className="max-w-2xl">
-                <p className="mono text-primary mb-4 font-bold tracking-[3px]">Ecosystem Analysis</p>
-                <h2 className="text-4xl md:text-6xl lg:text-7xl font-heading text-white leading-tight">Focus Research <br /> <span className="text-gradient-primary">Tracks.</span></h2>
-              </div>
-              <Link href="/cfp" className="px-10 py-4 glass-dark text-white rounded-2xl border border-white/10 hover:border-primary/50 transition-all font-bold mono text-[10px] tracking-[2px]">
-                VIEW ALL TRACKS
-              </Link>
+        {/* About ADSoc 6.0 Description */}
+        <Section className="pt-32 pb-24 md:pt-40 md:pb-32 px-6 bg-background relative neural-pattern overflow-hidden">
+          <div className="absolute inset-0 medical-grid opacity-10 pointer-events-none"></div>
+          <div className="bg-glow-primary -top-40 -left-40 opacity-30 pointer-events-none"></div>
+          
+          <div className="w-full mx-auto max-w-7xl relative z-10">
+            <div className="text-center mb-20">
+              <p className="mono text-primary mb-5 font-bold tracking-[6px] uppercase text-xs md:text-sm">About The ADSOC 6.0</p>
+              <h2 className="text-4xl md:text-5xl lg:text-7xl font-heading text-white leading-tight">
+                Pioneering <span className="text-gradient-primary">Smart Healthcare</span>
+              </h2>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                { 
-                  title: 'Medical Diagnostics', 
-                  image: '/track_diagnostics.png',
-                  desc: 'AI-driven precision diagnostics and imagery.' 
-                },
-                { 
-                  title: 'Smart Wearables', 
-                  image: '/track_wearables.png',
-                  desc: 'Bio-metric sensors and real-time monitoring.' 
-                },
-                { 
-                  title: 'Cyber-Physical Ethics', 
-                  image: '/track_ethics.png',
-                  desc: 'Ethics, privacy and security in digital health.' 
-                }
-              ].map((track, i) => (
-                <Link key={i} href="/cfp" className="group relative h-[500px] rounded-[50px] overflow-hidden border border-white/5 shadow-2xl transition-all hover:-translate-y-2">
-                  <Image 
-                    src={track.image} 
-                    alt={track.title} 
-                    fill 
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
-                    className="object-cover transition-transform duration-1000 group-hover:scale-110" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
-                  <div className="absolute bottom-10 left-10 right-10">
-                    <p className="mono text-[8px] text-primary font-bold tracking-[3px] mb-2">TRACK 0{i+1}</p>
-                    <h3 className="text-3xl font-heading text-white mb-3 group-hover:text-primary transition-colors leading-tight">{track.title}</h3>
-                    <p className="text-sm text-slate-400 font-body leading-relaxed group-hover:text-slate-200 transition-colors">{track.desc}</p>
-                    <div className="mt-8 w-14 h-14 rounded-full glass-dark flex items-center justify-center border border-white/10 group-hover:bg-primary transition-all">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </div>
-                  </div>
-                </Link>
-              ))}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+              {/* Image Side */}
+              <div className="relative h-full min-h-[400px] w-full rounded-[40px] overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(54,130,142,0.2)] group lg:col-span-5">
+                <Image 
+                  src="/ai_healthcare_about.png"
+                  alt="AI Healthcare Visualization"
+                  fill
+                  className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent"></div>
+              </div>
+
+              {/* Text Side */}
+              <div className="glass-dark rounded-[40px] p-8 lg:p-12 xl:p-16 border border-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative overflow-hidden group hover:border-white/10 transition-colors duration-700 flex flex-col justify-center lg:col-span-7">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/5 opacity-50 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                <p className="relative z-10 text-slate-200 font-body text-lg md:text-xl lg:text-2xl leading-relaxed lg:leading-[1.8] font-normal tracking-wide">
+                  <strong className="text-white font-semibold text-xl md:text-2xl lg:text-3xl block mb-6 leading-snug">International Conference on AI-Driven Smart Healthcare for Society 5.0 — ADSoc6.0</strong> 
+                  A prestigious technical conference organized by the Department of Computer Science and Engineering and Electrical Engineering of Guru Nanak Institute of Technology (GNIT) in collaboration with the IEEE Kolkata Section, focusing on <span className="text-primary font-medium">&quot;Artificial Intelligence in Smart Healthcare for a Human-Centric Society.&quot;</span>
+                  <br /><br />
+                  Scheduled in February 2026, the event will bring together leading researchers, clinicians, industry experts, research scholars, and academicians to discuss innovative solutions at the intersection of artificial intelligence and modern healthcare systems.
+                </p>
+              </div>
             </div>
           </div>
         </Section>
