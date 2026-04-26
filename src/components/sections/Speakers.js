@@ -34,6 +34,7 @@ export default function Speakers() {
                   src={speaker.img} 
                   alt={speaker.name} 
                   fill 
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/20 to-transparent"></div>

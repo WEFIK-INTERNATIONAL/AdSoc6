@@ -35,6 +35,7 @@ export default function Home() {
                   src="/ai_healthcare_about.png"
                   alt="AI Healthcare Visualization"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 42vw"
                   className="object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent"></div>
@@ -100,6 +101,7 @@ export default function Home() {
                   src="/GNITImage.png"
                   alt="Guru Nanak Institute of Technology"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 33vw"
                   className="object-cover transition-transform duration-1000 group-hover:scale-105 filter contrast-125 saturate-50"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent pointer-events-none"></div>

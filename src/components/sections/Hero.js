@@ -36,90 +36,108 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,theme(colors.background)_100%)] opacity-80"></div>
       </div>
 
-      {/* Main hero content centered vertically */}
-      <div className="relative z-10 flex flex-col items-center gap-5 md:gap-8 w-full max-w-5xl my-auto mt-auto mb-auto">
+      {/* Main Content Layout: Balanced Two-Column Structure */}
+      <div className="relative z-10 flex flex-col items-center justify-between gap-12 lg:gap-20 w-full max-w-7xl mx-auto my-auto px-4 lg:px-12">
         
-        {/* Live status & Dates */}
-        <div className="flex items-center gap-2.5 px-4 md:px-5 py-2 rounded-full border border-emerald-500/30 bg-emerald-950/30 backdrop-blur-md shadow-[0_0_20px_rgba(16,185,129,0.1)]">
-          <span className="relative flex h-2 w-2 shrink-0">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
-          </span>
-          <p className="mono text-emerald-400 font-bold tracking-[2px] md:tracking-[3px] text-[8px] md:text-[10px] uppercase">
-           Jan 24-25, 2026
-          </p>
-        </div>
-
-        {/* Typography Stack */}
-        <div className="flex flex-col items-center gap-3 w-full px-2">
-          <p className="mono font-bold text-primary tracking-[4px] md:tracking-[6px] text-[8px] md:text-[11px] uppercase opacity-90 drop-shadow-md">
-           ( ADSoC 6.0 )
-          </p>
+        {/* Left Column: Primary Hero Content */}
+        <div className="flex flex-col items-center text-center gap-6 md:gap-10 flex-1 w-full">
           
-          <h1 className="font-heading text-white leading-[1.1] text-[clamp(2.2rem,8vw,5.5rem)] tracking-tight drop-shadow-2xl max-w-4xl mx-auto">
-            AI-Driven Smart Healthcare
-            <br className="hidden sm:block" />
-            <span className="text-gradient-primary"> for Society 6.0</span>
-          </h1>
+          {/* Live status & Dates */}
+          <div className="flex items-center gap-2.5 px-4 py-2 rounded-full border border-emerald-500/20 bg-emerald-950/20 backdrop-blur-sm">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+            </span>
+            <p className="mono text-emerald-400 font-bold tracking-[3px] text-[9px] md:text-[10px] uppercase">
+             Jan 24-25, 2026
+            </p>
+          </div>
+
+          {/* Typography Stack */}
+          <div className="flex flex-col gap-4 w-full">
+            <p className="mono font-bold text-primary tracking-[6px] text-[10px] md:text-[12px] uppercase opacity-80">
+             International Conference on
+            </p>
+            
+            <h1 className="text-3xl text-white tracking-tight drop-shadow-2xl">
+              AI-Driven Smart <br className="hidden lg:block" />
+              Healthcare 
+              <span className="text-gradient-primary"> for Society 6.0</span>
+            </h1>
+          </div>
+
+          {/* Action Buttons: Anchored to the primary content */}
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-5 w-full mt-2">
+            <Link
+              href={SITE_CONFIG.googleFormLink}
+              target="_blank"
+              className="group relative overflow-hidden flex justify-center items-center gap-3 px-8 py-4.5 bg-primary text-white font-bold rounded-xl shadow-2xl hover:scale-[1.02] transition-all duration-300 mono text-[11px] tracking-[3px]"
+            >
+              REGISTER NOW
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </Link>
+
+            <Link
+              href="/cfp"
+              className="group flex justify-center items-center gap-3 px-8 py-4.5 rounded-xl border border-white/10 glass-dark text-slate-300 hover:text-white hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 mono text-[11px] tracking-[3px]"
+            >
+              CALL FOR PAPERS
+            </Link>
+          </div>
         </div>
 
-        {/* Button Stack: Responsive stack on mobile, row on larger */}
-        <div className="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-4 mt-2 sm:mt-4 w-full max-w-xs sm:max-w-none px-4 sm:px-0">
-          <Link
-            href={SITE_CONFIG.googleFormLink}
-            target="_blank"
-            className="group relative overflow-hidden flex justify-center items-center gap-2.5 px-6 md:px-8 py-4 bg-primary text-white font-bold rounded-xl shadow-[0_0_30px_rgba(54,130,142,0.3)] hover:shadow-[0_0_50px_rgba(54,130,142,0.5)] hover:-translate-y-1 hover:brightness-110 transition-all duration-300 mono text-[10px] md:text-[11px] tracking-[3px] text-center"
-          >
-            <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-600 ease-in-out pointer-events-none"></span>
-            REGISTER NOW
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform duration-200">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </Link>
+        {/* Right Column: Refined Sponsor Recognition Block */}
+        <div className="flex flex-col items-center text-center gap-6 w-full px-6 py-6">
+          <div className="flex flex-col gap-1.5">
+            <p className="mono text-[9px] md:text-[10px] font-bold tracking-[4px] uppercase text-primary/80">
+              Recognition
+            </p>
+            <p className="text-white font-heading text-lg md:text-xl font-bold tracking-tight uppercase leading-none">
+              Technically Co-Sponsored By
+            </p>
+          </div>
+          
+          <div className="relative w-full h-[80px] md:h-[150px] flex items-center justify-center">
+            <div className="absolute inset-0 bg-primary/10 blur-[60px] rounded-full"></div>
+            <Image 
+              src="/ieeelogoedit.png" 
+              alt="IEEE Kolkata Section Logo" 
+              fill 
+              sizes="(max-width: 1024px) 100vw, 450px"
+              className="object-contain object-center drop-shadow-2xl relative z-10" 
+            />
+          </div>
 
-          <Link
-            href="/cfp"
-            className="group flex justify-center items-center gap-2.5 px-6 md:px-8 py-4 rounded-xl border border-white/10 glass-dark text-slate-300 hover:text-white hover:border-primary/50 hover:bg-primary/10 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 mono text-[10px] md:text-[11px] tracking-[3px] text-center"
-          >
-            CALL FOR PAPERS
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-60 group-hover:opacity-100 transition-opacity duration-200">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-              <line x1="16" y1="13" x2="8" y2="13"/>
-              <line x1="16" y1="17" x2="8" y2="17"/>
-            </svg>
-          </Link>
+          <div className="flex flex-col gap-4 mt-2">
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-lg bg-white/5 border border-white/5 self-center">
+              <span className="text-slate-400 mono text-[10px] uppercase tracking-widest font-bold">Conference ID:</span>
+              <span className="text-primary font-bold tracking-wider text-sm md:text-base">#72298</span>
+            </div>
+            
+            <p className="text-slate-400 text-xs md:text-sm max-w-2xl font-medium leading-relaxed">
+              Accepted papers will be submitted for inclusion into <span className="text-slate-200">IEEE Xplore</span> subject to meeting scope and quality requirements.
+            </p>
+          </div>
         </div>
 
       </div>
 
-      {/* Footer Details: Premium Glass Pill Container */}
-      <div className="relative z-10 w-full max-w-4xl px-6 md:px-10 py-4 md:py-5 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 mx-auto mt-8 md:mt-12 rounded-2xl glass-dark shadow-[0_0_40px_rgba(0,0,0,0.5)] border border-white/5">
+      {/* Footer Details: Premium Minimal Pill */}
+      <div className="relative z-10 w-full max-w-4xl px-8 md:px-12 py-5 flex flex-col md:flex-row justify-between items-center gap-6 mx-auto mt-12 md:mt-16 rounded-2xl glass-dark border border-white/5 shadow-2xl">
         
-        {/* Organiser */}
-        <div className="flex flex-col items-center md:items-start text-center md:text-left gap-1">
-          <p className="mono text-[8px] text-primary font-bold tracking-[3px] uppercase">Organiser</p>
-          <p className="text-white font-heading text-xs sm:text-sm tracking-wide">Dept. of CSE — GNIT</p>
+        <div className="flex flex-col items-center md:items-start gap-1">
+          <p className="mono text-[8px] text-primary/70 font-bold tracking-[4px] uppercase">Organiser</p>
+          <p className="text-white font-heading text-xs tracking-widest uppercase">Dept. of CSE — GNIT</p>
         </div>
         
-        <div className="hidden md:block w-px h-10 bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
+        <div className="hidden md:block w-px h-8 bg-white/5"></div>
 
-        {/* Location & Meta */}
-        <div className="flex flex-col items-center text-center gap-1">
-          <p className="mono text-[8px] text-slate-400 font-bold tracking-[3px] uppercase">Location & Details</p>
-          <p className="text-slate-300 font-body text-[10px] sm:text-xs">NAAC &apos;A+&apos; • NBA Accredited • Kolkata</p>
+        <div className="flex flex-col items-center gap-1">
+          <p className="mono text-[8px] text-slate-500 font-bold tracking-[4px] uppercase">Accreditation</p>
+          <p className="text-slate-300 font-body text-[10px] tracking-wide">NAAC &apos;A+&apos; • NBA Accredited • Kolkata</p>
         </div>
-
-        <div className="hidden md:block w-px h-10 bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
-
-        {/* IEEE Sponsor */}
-        <div className="flex flex-col items-center md:items-left text-center md:text-right gap-1">
-           <p className="mono text-[8px] text-slate-400 font-bold tracking-[3px] uppercase">Co-Sponsored</p>
-           <div className="mt-1 relative w-32 h-6 md:w-45 md:h-12 flex items-center justify-center md:justify-center">
-              <Image src="/ieeelogoedit.png" alt="IEEE Logo" fill className="object-contain object-center" />
-           </div>
-        </div>
-
       </div>
     </section>
   );
