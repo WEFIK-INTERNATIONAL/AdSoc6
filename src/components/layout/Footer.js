@@ -1,82 +1,237 @@
+'use client';
+
+import { useState } from 'react';
 import { SITE_CONFIG } from '@/constants/site';
 import Image from 'next/image';
 import Link from 'next/link';
 
+// ─── Data ─────────────────────────────────────────────────────────────────────
+
+const G = { teal: '#36828E', red: '#E31E24' };
+
+const CONTACT_INFO = [
+  { label: 'adsoc6@gnit.ac.in', href: 'mailto:adsoc6@gnit.ac.in' },
+  { label: 'GNIT, Sodepur, Kolkata', href: 'https://maps.google.com/?q=GNIT+Kolkata', external: true },
+  { label: 'West Bengal — 700114', href: null },
+  { label: '+91 33 2553 5252', href: 'tel:+913325535252' },
+];
+
+const PAGES = [
+  { label: 'Home',             href: '/' },
+  { label: 'About ADSoC',      href: '/about/adsoc' },
+  { label: 'About Institute',  href: '/about/institute' },
+  { label: 'Dept. of CSE',     href: '/about/department' },
+  { label: 'Committee',        href: '/conference/committee' },
+  { label: 'Contact',          href: '/contact' },
+];
+
+const IMPORTANT = [
+  { label: 'Call for Papers',  href: '/cfp' },
+  { label: 'Research Tracks',  href: '/cfp/tracks' },
+  { label: 'Key Dates',        href: '/conference/dates' },
+  { label: 'Speakers',         href: '/speakers' },
+];
+
+const SOCIALS = [
+  { label: 'LinkedIn',         href: 'https://www.linkedin.com/school/guru-nanak-institute-of-technology-kolkata/', external: true },
+  { label: 'Twitter / X',      href: 'https://x.com/gnitsodepur', external: true },
+  { label: 'YouTube',          href: 'https://www.youtube.com/channel/UCsPH_rgx4nX5sZVNfBwd-Kw', external: true },
+  { label: 'Instagram',        href: 'https://www.instagram.com/gurunanakinstitute/', external: true },
+];
+
+// ─── Link list ────────────────────────────────────────────────────────────────
+
+function LinkList({ items }) {
+  return (
+    <ul className="space-y-2.5 mt-1">
+      {items.map((l, i) => (
+        <li key={i}>
+          {l.href ? (
+            <a
+              href={l.href}
+              target={l.external ? '_blank' : undefined}
+              rel={l.external ? 'noreferrer' : undefined}
+              className="font-body text-sm text-slate-500 hover:text-white transition-colors duration-150"
+            >
+              {l.label}
+            </a>
+          ) : (
+            <span className="font-body text-sm text-slate-600">{l.label}</span>
+          )}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+// ─── Column heading (big bold like the reference) ─────────────────────────────
+
+function ColHead({ children }) {
+  return (
+    <h3
+      className="font-big font-black uppercase leading-none mb-6"
+      style={{
+        fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)',
+        letterSpacing: '-0.03em',
+        background: `linear-gradient(100deg, #fff 30%, ${G.teal})`,
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+      }}
+    >
+      {children}
+    </h3>
+  );
+}
+
+// ─── Mobile accordion ─────────────────────────────────────────────────────────
+
+function Accordion({ title, children }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+      <button
+        onClick={() => setOpen(o => !o)}
+        className="w-full flex items-center justify-between py-4 text-left md:hidden"
+      >
+        <span
+          className="font-big font-black uppercase text-xl"
+          style={{ color: open ? G.teal : '#fff', transition: 'color .2s', letterSpacing: '-0.03em' }}
+        >
+          {title}
+        </span>
+        <svg
+          width="14" height="14" viewBox="0 0 24 24" fill="none"
+          stroke={G.teal} strokeWidth="2.5"
+          style={{ transform: open ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform .22s ease', flexShrink: 0 }}
+        >
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </button>
+      {/* Desktop: always visible */}
+      <div className="hidden md:block">{children}</div>
+      {/* Mobile: toggled */}
+      {open && <div className="md:hidden pb-5">{children}</div>}
+    </div>
+  );
+}
+
+// ─── Footer ───────────────────────────────────────────────────────────────────
+
 export default function Footer() {
   return (
-    <footer className="bg-background pt-24 pb-12 px-6 relative overflow-hidden border-t border-primary/10">
-      {/* Background Decorative */}
-      <div className="absolute inset-0 medical-grid opacity-20 pointer-events-none"></div>
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent pointer-events-none"></div>
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
-      
-      <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="grid md:grid-cols-4 gap-12 mb-20">
-          <div className="col-span-2">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-12 relative flex items-center justify-center translate-y-[-2px]">
-                <Image 
-                  src={SITE_CONFIG.logo} 
-                  fill 
-                  alt={SITE_CONFIG.name} 
-                  sizes="48px"
-                  className="object-contain" 
-                />
+    <footer
+      className="relative overflow-hidden"
+      style={{ background: '#030508', borderTop: '1px solid rgba(255,255,255,0.06)' }}
+    >
+      {/* Ambient glows */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div style={{ position: 'absolute', top: 0, right: 0, width: '500px', height: '350px', background: 'radial-gradient(ellipse at top right, rgba(54,130,142,0.09) 0%, transparent 65%)' }} />
+        <div style={{ position: 'absolute', bottom: 0, left: 0, width: '400px', height: '250px', background: 'radial-gradient(ellipse at bottom left, rgba(227,30,36,0.04) 0%, transparent 60%)' }} />
+      </div>
+
+      <div className="container mx-auto max-w-5xl px-6 relative z-10">
+
+        {/* ── Main grid ──────────────────────────────────────────────────── */}
+        <div
+          className="py-14 grid md:grid-cols-[1.4fr_1fr_1fr_1fr_0.9fr] gap-6 md:gap-6"
+          style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}
+        >
+
+          {/* Brand column */}
+          <div className="flex flex-col gap-5">
+            <Link href="/" className="flex items-center gap-3 group w-fit">
+              <div className="w-10 h-10 relative shrink-0">
+                <Image src={SITE_CONFIG.logo} fill alt={SITE_CONFIG.name} sizes="40px" className="object-contain" />
               </div>
-              <h2 className="text-4xl font-heading text-white tracking-tight">{SITE_CONFIG.name.split(' ')[0]} <span className="text-accent">{SITE_CONFIG.name.split(' ')[1]}</span></h2>
-            </div>
-            <p className="text-slate-400 max-w-sm mb-10 leading-relaxed font-body text-lg">
-              The premier International Conference on AI-Driven Smart Healthcare for Society 6.0. 
-              Bridging researchers, clinicians, and innovators globally.
+              <span className="font-heading font-bold text-xl text-white group-hover:text-primary transition-colors leading-none">
+                {SITE_CONFIG.name}
+              </span>
+            </Link>
+
+            <p className="font-body text-sm text-slate-500 leading-relaxed max-w-3xl">
+              International conference on AI-Driven Smart Healthcare. Bridging researchers, clinicians, and innovators globally.
             </p>
-            <div className="flex flex-wrap gap-3 md:gap-4">
-              {['LinkedIn', 'Twitter', 'YouTube'].map((social) => (
-                <div key={social} className="px-6 py-2.5 rounded-2xl border border-white/5 text-slate-400 mono text-[9px] font-bold tracking-[2px] hover:border-primary/50 hover:text-white transition-all cursor-pointer bg-background/5 text-center">
-                  {social.toUpperCase()}
-                </div>
-              ))}
+
+            {/* Partner logos */}
+            <div className="flex items-center gap-3 mt-1 w-fit">
+              <Image src="/jisgroup.png" alt="JIS Group" width={36} height={36} className="object-contain" />
+              <Image src="/GNIT.png"     alt="GNIT"      width={40} height={40} className="object-contain" />
+              <Image
+                src="/ieeelogoedit.png"
+                alt="IEEE Kolkata Section"
+                width={100}
+                height={36}
+                className="object-contain"
+              />
             </div>
           </div>
 
-          <div>
-            <h4 className="mono text-primary mb-10 font-bold tracking-[4px] text-[10px]">RESOURCES</h4>
-            <ul className="space-y-4 text-slate-400 font-body text-base">
-              <li><Link href="/about" className="hover:text-primary transition-colors">Vision & Mission</Link></li>
-              <li><Link href="/cfp" className="hover:text-primary transition-colors">Call for Papers</Link></li>
-              <li><Link href="/tracks" className="hover:text-primary transition-colors">Research Tracks</Link></li>
-              <li><Link href="/committee" className="hover:text-primary transition-colors">Committee 2026</Link></li>
-              <li><Link href="/venue" className="hover:text-primary transition-colors">Venue & Travel</Link></li>
-            </ul>
+          {/* CONTACT — desktop only ColHead, mobile accordion */}
+          <div className="hidden md:block">
+            <ColHead>Contact</ColHead>
+            <LinkList items={CONTACT_INFO} />
+          </div>
+          <div className="md:hidden">
+            <Accordion title="Contact">
+              <LinkList items={CONTACT_INFO} />
+            </Accordion>
           </div>
 
-          <div>
-            <h4 className="mono text-primary mb-10 font-bold tracking-[4px] text-[10px]">HEADQUARTERS</h4>
-            <div className="space-y-8">
-              <div className="break-words">
-                <p className="text-[9px] mono text-slate-500 mb-3 font-bold tracking-[2px]">PROTOCOL EMAIL</p>
-                <p className="text-white text-lg font-body border-b border-white/5 pb-2 break-all">adsoc6@gnit.ac.in</p>
-              </div>
-              <div>
-                <p className="text-[9px] mono text-slate-500 mb-3 font-bold tracking-[2px]">LOCATION</p>
-                <p className="text-white text-lg font-body">Sodepur, Kolkata<br />West Bengal, India</p>
-              </div>
-            </div>
+          {/* PAGES */}
+          <div className="hidden md:block">
+            <ColHead>Pages</ColHead>
+            <LinkList items={PAGES} />
           </div>
+          <div className="md:hidden">
+            <Accordion title="Pages">
+              <LinkList items={PAGES} />
+            </Accordion>
+          </div>
+
+          {/* IMPORTANT */}
+          <div className="hidden md:block">
+            <ColHead>Important</ColHead>
+            <LinkList items={IMPORTANT} />
+          </div>
+          <div className="md:hidden">
+            <Accordion title="Important">
+              <LinkList items={IMPORTANT} />
+            </Accordion>
+          </div>
+
+          {/* SOCIALS */}
+          <div className="hidden md:block">
+            <ColHead>Socials</ColHead>
+            <LinkList items={SOCIALS} />
+          </div>
+          <div className="md:hidden">
+            <Accordion title="Socials">
+              <LinkList items={SOCIALS} />
+            </Accordion>
+          </div>
+
         </div>
 
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-          <p className="text-[10px] text-slate-500 mono tracking-widest font-bold text-center md:text-left leading-relaxed">
-            &copy; 2026 ADSoC 6.0 | RESEARCH HUB - GNIT KOLKATA.
+        {/* ── Bottom bar ─────────────────────────────────────────────────── */}
+        <div className="py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p className="font-body text-[11px] text-center sm:text-left" style={{ color: 'rgba(100,116,139,0.5)' }}>
+            All rights reserved 2026 &copy;&nbsp;
+            <span className="font-semibold text-slate-500">ADSoC 6.0</span>
           </p>
-          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-            <span className="mono text-[10px] text-primary/60 font-bold uppercase tracking-[3px] text-center">TECHNICAL CO-SPONSOR</span>
-            <div className="px-5 py-3 glass-dark border border-white/10 rounded-2xl flex items-center gap-4 w-full justify-center md:w-auto">
-              <span className="text-sm font-bold text-white tracking-wide text-center">IEEE KOLKATA SECTION</span>
-            </div>
-          </div>
+          <a
+            href="https://www.wefik.in/"
+            target="_blank"
+            rel="noreferrer"
+            className="font-body text-[11px] transition-colors"
+            style={{ color: 'rgba(100,116,139,0.4)' }}
+            onMouseEnter={e => e.currentTarget.style.color = G.teal}
+            onMouseLeave={e => e.currentTarget.style.color = 'rgba(100,116,139,0.4)'}
+          >
+            Made by&nbsp;<span style={{ fontWeight: 700, color: 'inherit' }}>WEFIK</span>
+          </a>
         </div>
+
       </div>
     </footer>
   );
 }
-

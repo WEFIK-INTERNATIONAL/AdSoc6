@@ -34,13 +34,13 @@ export default function Nav() {
         <div className="container mx-auto max-w-7xl flex items-center justify-between h-full">
           {/* Logo Section */}
           <Link href="/" className="flex items-center gap-2 group relative z-110">
-            <div className="w-12 h-12 relative shrink-0">
+            <div className="w-12 h-12 relative shrink-0 rounded-lg overflow-hidden">
               <Image
                 src={SITE_CONFIG.logo}
                 fill
                 alt={SITE_CONFIG.name}
                 sizes="48px"
-                className="object-contain"
+                className="object-cover"
               />
             </div>
             <span className="font-heading text-[24px] font-medium text-white leading-none group-hover:text-primary transition-colors tracking-tight">
