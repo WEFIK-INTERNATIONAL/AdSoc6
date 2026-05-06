@@ -31,7 +31,7 @@ export default function Nav() {
           ? 'bg-background backdrop-blur-3xl border-white/8 shadow-xl shadow-black/30'
           : 'bg-transparent border-transparent'
       }`}>
-        <div className="container mx-auto max-w-7xl flex items-center justify-between h-full">
+        <div className="w-full md:container md:mx-auto max-w-7xl flex items-center justify-between h-full">
           {/* Logo Section */}
           <Link href="/" className="flex items-center gap-2 group relative z-110">
             <div className="w-12 h-12 relative shrink-0 rounded-lg overflow-hidden">

@@ -3,107 +3,112 @@
 const NOTICE_TEXT =
   'The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.';
 
-// Repeat enough times for a seamless loop
 const ITEMS = Array(6).fill(NOTICE_TEXT);
+
+const G = { teal: '#36828E', red: '#E31E24' };
 
 export default function PartnerStrip() {
   return (
-    <section
-      aria-label="Conference Notice"
-      className="relative overflow-hidden"
-      style={{
-        background: 'linear-gradient(to bottom, rgba(5,7,10,0) 0%, #05070A 20%, #05070A 80%, rgba(5,7,10,0) 100%)',
-      }}
-    >
-      {/* Top gradient border line */}
-      <div
-        className="absolute top-0 inset-x-0 h-px pointer-events-none"
-        style={{ background: 'linear-gradient(to right, transparent, #36828E55, #E31E2455, transparent)' }}
-      />
-      {/* Bottom gradient border line */}
-      <div
-        className="absolute bottom-0 inset-x-0 h-px pointer-events-none"
-        style={{ background: 'linear-gradient(to right, transparent, #36828E55, #E31E2455, transparent)' }}
-      />
+    <section aria-label="Conference Notice" className="relative overflow-hidden">
 
-      {/* Subtle background glow */}
+      {/* Vivid background — teal-tinted dark band */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background:
-            'radial-gradient(ellipse 60% 100% at 50% 50%, rgba(54,130,142,0.06) 0%, transparent 70%)',
+          background: `linear-gradient(100deg, rgba(54,130,142,0.14) 0%, rgba(5,7,10,0.95) 40%, rgba(5,7,10,0.95) 60%, rgba(227,30,36,0.08) 100%)`,
         }}
       />
 
-      <div className="py-5 md:py-7 flex items-center gap-6 md:gap-10">
-        {/* Pinned label badge — sits outside the scroll track */}
+      {/* Top border — bright gradient line */}
+      <div
+        className="absolute top-0 inset-x-0 h-[2px] pointer-events-none"
+        style={{ background: `linear-gradient(90deg, transparent 0%, ${G.teal} 30%, ${G.red} 70%, transparent 100%)` }}
+      />
+      {/* Bottom border */}
+      <div
+        className="absolute bottom-0 inset-x-0 h-[2px] pointer-events-none"
+        style={{ background: `linear-gradient(90deg, transparent 0%, ${G.teal} 30%, ${G.red} 70%, transparent 100%)` }}
+      />
+
+      {/* Glow dots — left and right corners */}
+      <div
+        className="absolute top-1/2 left-0 -translate-y-1/2 w-32 h-full pointer-events-none"
+        style={{ background: `radial-gradient(ellipse at left center, rgba(54,130,142,0.18) 0%, transparent 70%)` }}
+      />
+      <div
+        className="absolute top-1/2 right-0 -translate-y-1/2 w-32 h-full pointer-events-none"
+        style={{ background: `radial-gradient(ellipse at right center, rgba(227,30,36,0.1) 0%, transparent 70%)` }}
+      />
+
+      <div className="py-4 md:py-5 flex items-center gap-0 relative z-10">
+
+        {/* Pinned "CMT Notice" badge */}
         <div
-          className="relative shrink-0 hidden md:flex items-center gap-2.5 pl-6 pr-4 py-2 z-20"
-          style={{
-            borderRight: '1px solid rgba(54,130,142,0.25)',
-          }}
+          className="relative shrink-0 hidden md:flex items-center gap-2.5 pl-6 pr-5 py-2 z-20"
+          style={{ borderRight: `1px solid rgba(54,130,142,0.35)` }}
         >
           {/* Pulsing dot */}
           <span className="relative flex h-2 w-2 shrink-0">
             <span
               className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
-              style={{ background: '#36828E' }}
+              style={{ background: G.teal }}
             />
             <span
               className="relative inline-flex rounded-full h-2 w-2"
-              style={{ background: '#36828E' }}
+              style={{ background: G.teal }}
             />
           </span>
           <span
-            className="font-accent uppercase tracking-widest text-[0.6rem] md:text-[0.7rem] font-semibold whitespace-nowrap"
-            style={{ color: '#36828E', letterSpacing: '0.18em' }}
+            className="font-accent text-[0.65rem] font-bold uppercase whitespace-nowrap"
+            style={{ color: G.teal, letterSpacing: '0.2em' }}
           >
             CMT&nbsp;Notice
           </span>
         </div>
 
-        {/* Scrolling track */}
+        {/* Scrolling marquee track */}
         <div className="relative flex-1 overflow-hidden">
           {/* Left fade */}
           <div
-            className="absolute inset-y-0 left-0 w-24 md:w-40 z-10 pointer-events-none"
-            style={{ background: 'linear-gradient(to right, #05070A, transparent)' }}
+            className="absolute inset-y-0 left-0 w-20 md:w-32 z-10 pointer-events-none"
+            style={{ background: 'linear-gradient(to right, rgba(5,7,10,0.98), transparent)' }}
           />
           {/* Right fade */}
           <div
-            className="absolute inset-y-0 right-0 w-24 md:w-40 z-10 pointer-events-none"
-            style={{ background: 'linear-gradient(to left, #05070A, transparent)' }}
+            className="absolute inset-y-0 right-0 w-20 md:w-32 z-10 pointer-events-none"
+            style={{ background: 'linear-gradient(to left, rgba(5,7,10,0.98), transparent)' }}
           />
 
           <div
             className="flex w-max hover:[animation-play-state:paused]"
-            style={{ animation: 'marquee 55s linear infinite' }}
+            style={{ animation: 'marquee 120s linear infinite' }}
           >
             {ITEMS.map((text, idx) => (
-              <div key={idx} className="flex items-center shrink-0 px-8 md:px-14">
+              <div key={idx} className="flex items-center shrink-0 px-8 md:px-12">
                 <p
-                  className="font-body whitespace-nowrap text-base md:text-lg font-normal leading-none cursor-default select-none"
+                  className="whitespace-nowrap leading-none cursor-default select-none"
                   style={{
-                    background: 'linear-gradient(90deg, #CBD5E1 0%, #94A3B8 60%, #64748b 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
+                    fontSize: 'clamp(1.5rem, 3.5vw, 2.5rem)',
+                    fontWeight: 500,
+                    color: 'rgba(203,213,225,0.92)',
+                    fontFamily: 'inherit',
                   }}
                 >
                   {text}
                 </p>
 
-                {/* Separator — styled diamond */}
                 <span
-                  className="shrink-0 ml-8 md:ml-14 w-1.5 h-1.5 rotate-45 block"
-                  style={{ background: 'linear-gradient(135deg, #36828E, #E31E24)' }}
+                  className="shrink-0 ml-8 md:ml-12 w-2 h-2 rotate-45 block"
+                  style={{
+                    background: `linear-gradient(135deg, ${G.teal}, ${G.red})`,
+                    boxShadow: `0 0 6px ${G.teal}88`,
+                  }}
                 />
               </div>
             ))}
           </div>
         </div>
       </div>
-
-      {/* Bottom gradient border line (duplicate for symmetry) */}
     </section>
   );
 }
