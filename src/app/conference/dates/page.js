@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import Section from "@/components/ui/Section";
 import InteractiveDotGrid from "@/components/ui/InteractiveDotGrid";
 import Link from "next/link";
+import UniversalCTA from "@/components/sections/UniversalCTA";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -14,8 +15,8 @@ const DATES = [
     id: 1,
     phase: "Phase 01",
     title: "Abstract Submission",
-    deadline: "2026-05-16",
-    display: "May 16, 2026",
+    deadline: "2026-05-31",
+    display: "May 31, 2026",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
         <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/>
@@ -26,8 +27,8 @@ const DATES = [
     id: 2,
     phase: "Phase 02",
     title: "Full Paper Submission",
-    deadline: "2026-09-30",
-    display: "Sep 30, 2026",
+    deadline: "2026-07-15",
+    display: "Jul 15, 2026",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><polyline points="14 2 14 8 20 8"/>
@@ -296,67 +297,7 @@ export default function DatesPage() {
           </div>
         </div>
 
-        {/* ── CTA ──────────────────────────────────────────────────── */}
-        <Section className="py-24 px-6 bg-background relative overflow-hidden border-t border-white/5">
-          <div className="absolute inset-0 plus-pattern opacity-20" />
-          <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full blur-[120px] pointer-events-none"
-            style={{ background: 'rgba(227,30,36,0.05)' }}
-          />
-
-          <div className="container mx-auto max-w-4xl text-center relative z-10">
-            <div
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6"
-              style={{ border: '1px solid rgba(227,30,36,0.3)', background: 'rgba(227,30,36,0.05)' }}
-            >
-              <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#E31E24' }} />
-              <p className="font-accent text-[0.65rem] font-semibold tracking-widest uppercase" style={{ color: '#E31E24' }}>
-                Call for Papers
-              </p>
-            </div>
-
-            <h2
-              className="font-big text-5xl md:text-7xl font-black uppercase text-white mb-4 leading-none"
-              style={{ letterSpacing: '-0.05em' }}
-            >
-              Ready to{' '}
-              <span
-                style={{
-                  background: 'linear-gradient(90deg, #E31E24, #36828E)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                }}
-              >
-                Submit?
-              </span>
-            </h2>
-
-            <p className="font-body text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed text-lg">
-              Join leading globally indexed researchers. ADSoC 6.0 is technically co-sponsored by IEEE Kolkata Section. Ensure your work shapes Society 6.0.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/cfp"
-                className="px-10 py-4 text-white font-semibold rounded-lg text-sm tracking-widest transition-all duration-300 hover:scale-105"
-                style={{
-                  background: 'linear-gradient(135deg, #E31E24, #b91c1c)',
-                  boxShadow: '0 8px 32px rgba(227,30,36,0.25)',
-                  border: '1px solid rgba(227,30,36,0.4)',
-                }}
-              >
-                SUBMISSION PORTAL
-              </Link>
-              <Link
-                href="/conference/guidelines"
-                className="px-10 py-4 text-white font-medium rounded-lg border border-white/10 hover:border-white/25 transition-all text-sm tracking-widest"
-                style={{ background: 'rgba(255,255,255,0.03)', backdropFilter: 'blur(12px)' }}
-              >
-                PAPER GUIDELINES
-              </Link>
-            </div>
-          </div>
-        </Section>
+        <UniversalCTA />
       </main>
 
       <Footer />

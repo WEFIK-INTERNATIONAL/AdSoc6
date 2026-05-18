@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import Section from "@/components/ui/Section";
 import InteractiveDotGrid from "@/components/ui/InteractiveDotGrid";
 import Link from "next/link";
+import UniversalCTA from "@/components/sections/UniversalCTA";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -314,10 +315,7 @@ export default function AboutAdsocPage() {
                   onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(54,130,142,0.28)'}
                   onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)'}
                 >
-                  <span
-                    className="font-big font-black text-2xl leading-none"
-                    style={{ color: 'rgba(54,130,142,0.3)' }}
-                  >
+                  <span className="font-big font-black text-2xl leading-none" style={{ color: 'rgba(54,130,142,0.3)' }}>
                     {w.num}
                   </span>
                   <p className="font-display font-bold text-white text-sm">{w.label}</p>
@@ -330,58 +328,10 @@ export default function AboutAdsocPage() {
 
         <HR />
 
-        {/* ── CTA ──────────────────────────────────────────────────────────── */}
-        <section className="py-16 px-6 relative overflow-hidden">
-          <div className="absolute inset-0 plus-pattern opacity-10 pointer-events-none" />
-          <div className="container mx-auto max-w-3xl text-center relative z-10">
-            <div
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-5"
-              style={{ border: `1px solid rgba(227,30,36,0.3)`, background: 'rgba(227,30,36,0.05)' }}
-            >
-              <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: G.red }} />
-              <span className="font-accent text-[0.6rem] font-semibold tracking-widest uppercase" style={{ color: G.red }}>
-                Submissions Open
-              </span>
-            </div>
-
-            <h2
-              className="font-big font-black uppercase text-white leading-none mb-4"
-              style={{ fontSize: 'clamp(2.5rem,7vw,5rem)', letterSpacing: '-0.04em' }}
-            >
-              Ready to{' '}
-              <span style={{ background: `linear-gradient(90deg,${G.red},${G.teal})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                Contribute?
-              </span>
-            </h2>
-
-            <p className="font-body text-slate-400 max-w-xl mx-auto mb-8 leading-relaxed text-base">
-              Submit your research and be part of the premier global forum on AI-driven smart healthcare. ADSoC 6.0 is technically co-sponsored by the IEEE Kolkata Section.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Link
-                href="/cfp"
-                className="px-8 py-3.5 text-white font-semibold rounded-lg text-sm tracking-widest transition-all duration-300 hover:scale-105"
-                style={{
-                  background: `linear-gradient(135deg, ${G.red}, #b91c1c)`,
-                  boxShadow: '0 6px 24px rgba(227,30,36,0.25)',
-                  border: `1px solid rgba(227,30,36,0.4)`,
-                }}
-              >
-                SUBMIT YOUR PAPER
-              </Link>
-              <Link
-                href="/conference/dates"
-                className="px-8 py-3.5 text-white font-medium rounded-lg border border-white/10 hover:border-white/25 transition-all text-sm tracking-widest"
-                style={{ background: 'rgba(255,255,255,0.03)' }}
-              >
-                VIEW KEY DATES
-              </Link>
-            </div>
-          </div>
-        </section>
+        <UniversalCTA />
       </main>
       <Footer />
     </div>
   );
 }
+

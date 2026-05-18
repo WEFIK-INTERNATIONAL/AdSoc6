@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import Section from "@/components/ui/Section";
 import InteractiveDotGrid from "@/components/ui/InteractiveDotGrid";
 import Link from "next/link";
+import UniversalCTA from "@/components/sections/UniversalCTA";
 
 const GuidelineAccordion = ({ title, isOpen, onToggle, children, number }) => (
   <div className={`relative border border-white/5 bg-white/[0.02] mb-4 rounded-xl overflow-hidden transition-all duration-500 ${isOpen ? 'ring-1 ring-primary/30 shadow-[0_0_40px_rgba(54,130,142,0.1)]' : ''}`}>
@@ -73,99 +74,39 @@ export default function GuidelinesPage() {
               isOpen={openSection === 0} 
               onToggle={() => setOpenSection(openSection === 0 ? -1 : 0)}
             >
-              <div className="space-y-12">
-                {/* Indian Authors */}
-                <div className="relative group">
-                  <div className="flex items-center gap-4 mb-8">
-                    <span className="mono text-accent text-xs font-black tracking-[4px] uppercase bg-accent/10 px-3 py-1 rounded">Regional</span>
-                    <h3 className="text-2xl font-big text-white uppercase tracking-wider">Indian Authors</h3>
-                    <div className="h-px flex-1 bg-gradient-to-r from-accent/40 to-transparent"></div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {[
-                      { cat: "Students", eb_ieee: "₹ 5,000", eb_non: "₹ 6,000", reg_ieee: "₹ 5,500", reg_non: "₹ 7,000" },
-                      { cat: "Academicians", eb_ieee: "₹ 7,000", eb_non: "₹ 8,000", reg_ieee: "₹ 8,000", reg_non: "₹ 9,000" },
-                      { cat: "Industry Professionals", eb_ieee: "₹ 8,000", eb_non: "₹ 9,000", reg_ieee: "₹ 9,000", reg_non: "₹ 10,000" },
-                      { cat: "Attendees", eb_ieee: "₹ 800", eb_non: "₹ 1,000", reg_ieee: "₹ 1,000", reg_non: "₹ 1,200" }
-                    ].map((item, idx) => (
-                      <div key={idx} className="glass-dark border border-white/5 rounded-2xl p-6 hover:border-accent/30 transition-all group/card relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-16 h-16 bg-accent/5 -rotate-45 translate-x-8 -translate-y-8 group-hover/card:bg-accent/10 transition-colors"></div>
-                        <h4 className="font-big text-white text-lg mb-6 tracking-wide uppercase">{item.cat}</h4>
-                        
-                        <div className="space-y-4">
-                          <div className="opacity-40">
-                            <p className="text-[10px] uppercase tracking-widest mb-1 italic">Early Bird (Closed)</p>
-                            <div className="flex justify-between text-xs mono">
-                              <span>IEEE: {item.eb_ieee}</span>
-                              <span>Non: {item.eb_non}</span>
-                            </div>
-                          </div>
-                          <div className="h-px bg-white/5"></div>
-                          <div>
-                            <p className="text-[10px] text-accent uppercase tracking-widest mb-2 font-bold">Regular</p>
-                            <div className="space-y-2">
-                              <div className="flex justify-between items-end">
-                                <span className="text-[10px] opacity-60 uppercase">IEEE Member</span>
-                                <span className="text-xl mono font-bold text-white leading-none">{item.reg_ieee}</span>
-                              </div>
-                              <div className="flex justify-between items-end">
-                                <span className="text-[10px] opacity-60 uppercase">Non-IEEE</span>
-                                <span className="text-xl mono font-bold text-white leading-none">{item.reg_non}</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Foreign Authors */}
-                <div className="relative group">
-                  <div className="flex items-center gap-4 mb-8">
-                    <span className="mono text-primary text-xs font-black tracking-[4px] uppercase bg-primary/10 px-3 py-1 rounded">Global</span>
-                    <h3 className="text-2xl font-big text-white uppercase tracking-wider">Foreign Authors</h3>
-                    <div className="h-px flex-1 bg-gradient-to-r from-primary/40 to-transparent"></div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {[
-                      { cat: "Students", eb_ieee: "$ 80", eb_non: "$ 100", reg_ieee: "$ 100", reg_non: "$ 120" },
-                      { cat: "Academicians", eb_ieee: "$ 100", eb_non: "$ 120", reg_ieee: "$ 120", reg_non: "$ 140" },
-                      { cat: "Industry Professionals", eb_ieee: "$ 150", eb_non: "$ 170", reg_ieee: "$ 170", reg_non: "$ 190" },
-                      { cat: "Attendees", eb_ieee: "$ 40", eb_non: "$ 50", reg_ieee: "$ 50", reg_non: "$ 60" }
-                    ].map((item, idx) => (
-                      <div key={idx} className="glass-dark border border-white/5 rounded-2xl p-6 hover:border-primary/30 transition-all group/card relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 -rotate-45 translate-x-8 -translate-y-8 group-hover/card:bg-primary/10 transition-colors"></div>
-                        <h4 className="font-big text-white text-lg mb-6 tracking-wide uppercase">{item.cat}</h4>
-                        
-                        <div className="space-y-4">
-                          <div className="opacity-40">
-                            <p className="text-[10px] uppercase tracking-widest mb-1 italic">Early Bird (Closed)</p>
-                            <div className="flex justify-between text-xs mono">
-                              <span>IEEE: {item.eb_ieee}</span>
-                              <span>Non: {item.eb_non}</span>
-                            </div>
-                          </div>
-                          <div className="h-px bg-white/5"></div>
-                          <div>
-                            <p className="text-[10px] text-primary uppercase tracking-widest mb-2 font-bold">Regular</p>
-                            <div className="space-y-2">
-                              <div className="flex justify-between items-end">
-                                <span className="text-[10px] opacity-60 uppercase">IEEE Member</span>
-                                <span className="text-xl mono font-bold text-white leading-none">{item.reg_ieee}</span>
-                              </div>
-                              <div className="flex justify-between items-end">
-                                <span className="text-[10px] opacity-60 uppercase">Non-IEEE</span>
-                                <span className="text-xl mono font-bold text-white leading-none">{item.reg_non}</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+              <div className="space-y-10">
+                {/* Fee Table */}
+                <div className="overflow-x-auto rounded-2xl border border-white/10">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr style={{ background: 'rgba(54,130,142,0.12)' }}>
+                        <th className="text-left px-6 py-5 text-white font-big uppercase tracking-wider text-base border-b border-white/10">Participants</th>
+                        <th className="px-6 py-5 text-accent font-big uppercase tracking-wider text-base border-b border-white/10 text-center">Academic</th>
+                        <th className="px-6 py-5 text-accent font-big uppercase tracking-wider text-base border-b border-white/10 text-center">Industry</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[
+                        { label: 'National Participants (Non-IEEE Member)', academic: '₹ 7,000', industry: '₹ 7,500' },
+                        { label: 'National Participants (IEEE Member)',      academic: '₹ 6,500', industry: '₹ 7,000' },
+                        { label: 'International Participants',               academic: '$ 125',   industry: '$ 150'   },
+                      ].map((row, idx) => (
+                        <tr
+                          key={idx}
+                          className="border-b border-white/5 hover:bg-white/[0.03] transition-colors"
+                          style={{ background: idx % 2 === 0 ? 'rgba(255,255,255,0.01)' : 'transparent' }}
+                        >
+                          <td className="px-6 py-5 text-slate-200 font-body font-semibold">{row.label}</td>
+                          <td className="px-6 py-5 text-center">
+                            <span className="mono text-xl font-black text-white">{row.academic}</span>
+                          </td>
+                          <td className="px-6 py-5 text-center">
+                            <span className="mono text-xl font-black text-white">{row.industry}</span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
 
                 <div className="p-8 rounded-[32px] bg-white/[0.03] border border-white/5 border-l-4 border-l-accent relative overflow-hidden">
@@ -202,10 +143,10 @@ export default function GuidelinesPage() {
                   ))}
                 </div>
 
-                <div className="flex flex-wrap gap-4 mt-8">
+                {/* <div className="flex flex-wrap gap-4 mt-8">
                     <a href="https://www.nit.ac.in/stepcon/pdf/conference-template-a4.docx" className="px-10 py-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-primary/20 hover:border-primary/40 transition-all text-sm font-bold tracking-[3px] uppercase">WORD TEMPLATE</a>
                     <a href="https://www.nit.ac.in/stepcon/pdf/conference-latex-template_10-17-19.zip" className="px-10 py-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-primary/20 hover:border-primary/40 transition-all text-sm font-bold tracking-[3px] uppercase">LATEX TEMPLATE</a>
-                </div>
+                </div> */}
               </div>
             </GuidelineAccordion>
 
@@ -233,7 +174,7 @@ export default function GuidelinesPage() {
                 </div>
 
                 <div className="pt-6">
-                    <Link href="https://cmt3.research.microsoft.com/STEPCon2025" target="_blank" className="inline-block px-14 py-5 bg-primary text-white font-black rounded-2xl hover:bg-primary/90 shadow-[0_20px_50px_rgba(54,130,142,0.3)] transition-all tracking-[4px] uppercase text-sm">
+                    <Link href="https://cmt3.research.microsoft.com/ADSoc2027" target="_blank" className="inline-block px-14 py-5 bg-primary text-white font-black rounded-2xl hover:bg-primary/90 shadow-[0_20px_50px_rgba(54,130,142,0.3)] transition-all tracking-[4px] uppercase text-sm">
                         ACCESS CMT PORTAL
                     </Link>
                 </div>
@@ -249,7 +190,7 @@ export default function GuidelinesPage() {
             >
               <div className="space-y-8 max-w-4xl">
                 <p className="text-lg text-slate-400">Follow our detailed technical roadmap to complete your registration successfully.</p>
-                <a href="https://www.nit.ac.in/stepcon/pdf/registration-details.pdf" className="inline-flex items-center gap-6 px-10 py-6 bg-white/[0.03] border border-white/10 rounded-3xl hover:bg-white/5 transition-all group border-l-4 border-l-primary">
+                <a href="/CFP18052026psd.pdf" target='_blank' className="inline-flex items-center gap-6 px-10 py-6 bg-white/[0.03] border border-white/10 rounded-3xl hover:bg-white/5 transition-all group border-l-4 border-l-primary">
                     <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                     </div>
@@ -262,7 +203,7 @@ export default function GuidelinesPage() {
             </GuidelineAccordion>
 
             {/* 5. Camera-Ready Submission */}
-            <GuidelineAccordion 
+            {/* <GuidelineAccordion 
               number="05"
               title="Camera-Ready Protocol" 
               isOpen={openSection === 4} 
@@ -280,35 +221,12 @@ export default function GuidelinesPage() {
                     </div>
                 </a>
               </div>
-            </GuidelineAccordion>
+            </GuidelineAccordion> */}
 
           </Section>
         </div>
 
-        {/* Paper Submission Teaser - CTA */}
-        <Section className="py-24 px-6 bg-background relative overflow-hidden border-t border-white/5">
-          <div className="absolute inset-0 plus-pattern opacity-20"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[120px]"></div>
-          <div className="container mx-auto max-w-5xl text-center relative z-10">
-            <div className="inline-block px-4 py-1.5 rounded-full border border-accent/30 mb-6">
-              <p className="text-[10px] text-accent font-semibold tracking-[4px] uppercase">Submission Open</p>
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-big text-white mb-6 uppercase tracking-tighter">
-              Ready to <span className="text-accent">Submit?</span>
-            </h2>
-            <p className="text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed text-lg font-body">
-              Join leading globally indexed researchers. ADSoC 6.0 is technically co-sponsored by IEEE Kolkata Section. Ensure your work shapes Society 6.0.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Link href="/cfp" className="px-12 py-5 bg-accent text-white font-black rounded-xl hover:bg-accent/90 transition-all shadow-[0_20px_60px_rgba(227,30,36,0.2)] text-sm tracking-[4px] uppercase">
-                SUBMISSION PORTAL
-              </Link>
-              <Link href="/conference/dates" className="px-12 py-5 glass-dark text-white font-bold rounded-xl border border-white/10 hover:border-white/20 transition-all text-sm tracking-[4px] uppercase">
-                KEY DEADLINES
-              </Link>
-            </div>
-          </div>
-        </Section>
+        <UniversalCTA />
       </main>
 
       <Footer />

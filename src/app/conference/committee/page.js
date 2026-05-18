@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import Section from "@/components/ui/Section";
 import InteractiveDotGrid from "@/components/ui/InteractiveDotGrid";
 import Link from "next/link";
+import UniversalCTA from "@/components/sections/UniversalCTA";
 
 // Custom Chevron Component
 const ChevronIcon = () => (
@@ -399,30 +400,7 @@ export default function CommitteePage() {
             </Section>
           ))}
         </div>
-        {/* Paper Submission Teaser - CTA */}
-        <Section className="py-24 px-6 bg-background relative overflow-hidden border-t border-white/5">
-          <div className="absolute inset-0 plus-pattern opacity-20"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[120px]"></div>
-          <div className="container mx-auto max-w-5xl text-center relative z-10">
-            <div className="inline-block px-4 py-1.5 rounded-full border border-accent/30 mb-6">
-              <p className="text-xs text-accent font-semibold tracking-widest uppercase">Call for Papers</p>
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading text-white mb-6">
-              Ready to <span className="text-accent">Submit?</span>
-            </h2>
-            <p className="text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed text-lg font-body">
-              Join leading globally indexed researchers. ADSoC 6.0 is technically co-sponsored by IEEE Kolkata Section. Ensure your work shapes Society 6.0.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-              <Link href="/cfp" className="px-10 py-4 bg-accent text-white font-semibold rounded-lg hover:bg-accent/90 transition-all shadow-xl shadow-accent/20 text-sm tracking-widest border border-accent/30">
-                SUBMISSION PORTAL
-              </Link>
-              <Link href="/conference/dates" className="px-10 py-4 glass-dark text-white font-medium rounded-lg border border-white/10 hover:border-white/20 transition-all text-sm tracking-widest">
-                KEY DEADLINES
-              </Link>
-            </div>
-          </div>
-        </Section>
+        <UniversalCTA />
       </main>
 
       <Footer />

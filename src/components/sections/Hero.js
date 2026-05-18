@@ -49,7 +49,7 @@ export default function Hero() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
             </span>
             <p className="mono text-emerald-400 font-bold tracking-[3px] text-[9px] md:text-[10px] uppercase">
-             Jan 24-25, 2026
+             February 26-27, 2027
             </p>
           </div>
 
@@ -73,7 +73,7 @@ export default function Hero() {
               target="_blank"
               className="group relative overflow-hidden flex justify-center items-center gap-3 px-8 py-4.5 bg-primary text-white font-bold rounded-xl shadow-2xl hover:scale-[1.02] transition-all duration-300 mono text-[11px] tracking-[3px]"
             >
-              REGISTER NOW
+              Submit Paper
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
