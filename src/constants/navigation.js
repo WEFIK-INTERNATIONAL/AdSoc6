@@ -19,12 +19,6 @@ export const navLinks = [
       { name: 'Keynote speakers', href: '/conference/speakers' }
     ] 
   },
-  { 
-    name: 'Call for papers', 
-    href: '/cfp/tracks',
-    subLinks: [
-      { name: 'Tracks', href: '/cfp/tracks' }
-    ] 
-  },
+  { name: 'Call for papers', href: '/cfp' },
   { name: 'Contact us', href: '/contact' }
 ];

@@ -27,7 +27,6 @@ const PAGES = [
 
 const IMPORTANT = [
   { label: 'Call for Papers',  href: '/cfp' },
-  { label: 'Research Tracks',  href: '/cfp/tracks' },
   { label: 'Key Dates',        href: '/conference/dates' },
   { label: 'Speakers',         href: '/speakers' },
 ];
