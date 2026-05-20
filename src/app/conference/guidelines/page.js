@@ -130,6 +130,7 @@ export default function GuidelinesPage() {
                 <p className="text-xl">Submissions must adhere to the <span className="text-white font-semibold underline decoration-primary decoration-2 underline-offset-8">IEEE Standard double-column format</span> for A4 size paper.</p>
                 
                 <div className="grid md:grid-cols-3 gap-6">
+                  
                   {[
                     { label: "Standard Limit", value: "6 Pages", sub: "Included in base fee" },
                     { label: "Maximum Limit", value: "8 Pages", sub: "Extra fee for additional 2" },
@@ -139,8 +140,11 @@ export default function GuidelinesPage() {
                       <p className="text-[10px] text-primary font-bold uppercase tracking-[2px] mb-3">{stat.label}</p>
                       <p className="text-2xl font-big text-white mb-1 uppercase tracking-wider">{stat.value}</p>
                       <p className="text-xs text-slate-500">{stat.sub}</p>
+                      
                     </div>
+                    
                   ))}
+                  
                 </div>
 
                 {/* <div className="flex flex-wrap gap-4 mt-8">
@@ -190,7 +194,7 @@ export default function GuidelinesPage() {
             >
               <div className="space-y-8 max-w-4xl">
                 <p className="text-lg text-slate-400">Follow our detailed technical roadmap to complete your registration successfully.</p>
-                <a href="/CFP18052026psd.pdf" target='_blank' className="inline-flex items-center gap-6 px-10 py-6 bg-white/[0.03] border border-white/10 rounded-3xl hover:bg-white/5 transition-all group border-l-4 border-l-primary">
+                <a href="AdSoc6\public\ADSOC REGISTRATION ROADMAP.pdf" target='_blank' className="inline-flex items-center gap-6 px-10 py-6 bg-white/[0.03] border border-white/10 rounded-3xl hover:bg-white/5 transition-all group border-l-4 border-l-primary">
                     <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                     </div>

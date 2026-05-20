@@ -55,7 +55,7 @@ export default function Hero() {
 
           {/* Typography Stack */}
           <div className="flex flex-col gap-4 w-full">
-            <p className="mono font-bold text-primary tracking-[6px] text-[10px] md:text-[12px] uppercase opacity-80">
+            <p className=" font-bold text-primary tracking-[6px] text-[15px] md:text-[15px] uppercase opacity-90">
              International Conference on
             </p>
             
