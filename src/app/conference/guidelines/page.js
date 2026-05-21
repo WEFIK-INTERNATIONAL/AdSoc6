@@ -126,11 +126,11 @@ export default function GuidelinesPage() {
               isOpen={openSection === 1} 
               onToggle={() => setOpenSection(openSection === 1 ? -1 : 1)}
             >
-              <div className="space-y-8 max-w-4xl">
-                <p className="text-xl">Submissions must adhere to the <span className="text-white font-semibold underline decoration-primary decoration-2 underline-offset-8">IEEE Standard double-column format</span> for A4 size paper.</p>
+              <div className="space-y-10 w-full">
+                <p className="text-xl leading-relaxed">Submissions must adhere to the <span className="text-white font-semibold underline decoration-primary decoration-2 underline-offset-8">IEEE Standard double-column format</span> for A4 size paper. Authors may use either of the two officially supported formats below.</p>
                 
+                {/* Page Stats */}
                 <div className="grid md:grid-cols-3 gap-6">
-                  
                   {[
                     { label: "Standard Limit", value: "6 Pages", sub: "Included in base fee" },
                     { label: "Maximum Limit", value: "8 Pages", sub: "Extra fee for additional 2" },
@@ -140,17 +140,97 @@ export default function GuidelinesPage() {
                       <p className="text-[10px] text-primary font-bold uppercase tracking-[2px] mb-3">{stat.label}</p>
                       <p className="text-2xl font-big text-white mb-1 uppercase tracking-wider">{stat.value}</p>
                       <p className="text-xs text-slate-500">{stat.sub}</p>
-                      
                     </div>
-                    
                   ))}
-                  
                 </div>
 
-                {/* <div className="flex flex-wrap gap-4 mt-8">
-                    <a href="https://www.nit.ac.in/stepcon/pdf/conference-template-a4.docx" className="px-10 py-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-primary/20 hover:border-primary/40 transition-all text-sm font-bold tracking-[3px] uppercase">WORD TEMPLATE</a>
-                    <a href="https://www.nit.ac.in/stepcon/pdf/conference-latex-template_10-17-19.zip" className="px-10 py-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-primary/20 hover:border-primary/40 transition-all text-sm font-bold tracking-[3px] uppercase">LATEX TEMPLATE</a>
-                </div> */}
+                {/* Format Cards */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  
+                  {/* Doc Format */}
+                  <div className="relative p-8 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-primary/40 hover:bg-white/[0.05] transition-all group overflow-hidden">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-primary/10 transition-colors"></div>
+                    <div className="relative z-10">
+                      {/* Icon */}
+                      <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary/20 transition-colors">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                          <polyline points="14 2 14 8 20 8"/>
+                          <line x1="16" y1="13" x2="8" y2="13"/>
+                          <line x1="16" y1="17" x2="8" y2="17"/>
+                          <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                      </div>
+                      <p className="text-[10px] text-primary font-bold uppercase tracking-[3px] mb-2">Format A</p>
+                      <h3 className="text-2xl font-big text-white uppercase tracking-wider mb-3">Doc Format</h3>
+                      <p className="text-slate-400 font-body text-sm leading-relaxed mb-6">
+                        Microsoft Word template for IEEE A4 double-column paper format. Ideal for authors who prefer a word processor environment. Includes pre-configured styles for headings, body text, captions, and references.
+                      </p>
+                      <a 
+                        href="/conference-template-a4.docx" 
+                        download="conference-template-a4.docx"
+                        className="w-full inline-flex items-center justify-between gap-4 px-6 py-4 bg-primary text-white rounded-2xl hover:bg-primary/80 active:scale-[0.98] transition-all duration-200 group/btn shadow-[0_8px_30px_rgba(54,130,142,0.25)] hover:shadow-[0_12px_40px_rgba(54,130,142,0.4)]"
+                      >
+                        <div className="flex items-center gap-3">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                          </svg>
+                          <span className="font-bold text-sm tracking-wide">IEEE Conference Template in Doc</span>
+                        </div>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-70 group-hover/btn:translate-x-1 transition-transform">
+                          <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* LaTeX Format */}
+                  <div className="relative p-8 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-accent/40 hover:bg-white/[0.05] transition-all group overflow-hidden">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-accent/10 transition-colors"></div>
+                    <div className="relative z-10">
+                      {/* Icon */}
+                      <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mb-6 group-hover:bg-accent/20 transition-colors">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="16 18 22 12 16 6"/>
+                          <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                      </div>
+                      <p className="text-[10px] text-accent font-bold uppercase tracking-[3px] mb-2">Format B</p>
+                      <h3 className="text-2xl font-big text-white uppercase tracking-wider mb-3">LaTeX Format</h3>
+                      <p className="text-slate-400 font-body text-sm leading-relaxed mb-6">
+                        Official IEEE LaTeX template package for A4 double-column format. Recommended for technical and scientific papers. The zip archive contains the <span className="text-white font-semibold">.tex</span> source, style files, and a sample bibliography.
+                      </p>
+                      <a 
+                        href="/conference-latex-template_10-17-19.zip" 
+                        download="conference-latex-template_10-17-19.zip"
+                        className="w-full inline-flex items-center justify-between gap-4 px-6 py-4 bg-accent text-white rounded-2xl hover:bg-accent/80 active:scale-[0.98] transition-all duration-200 group/btn shadow-[0_8px_30px_rgba(220,90,60,0.2)] hover:shadow-[0_12px_40px_rgba(220,90,60,0.35)]"
+                      >
+                        <div className="flex items-center gap-3">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                          </svg>
+                          <span className="font-bold text-sm tracking-wide">IEEE Conference Template in Latex</span>
+                        </div>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-70 group-hover/btn:translate-x-1 transition-transform">
+                          <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* Note */}
+                <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 border-l-4 border-l-primary/60">
+                  <p className="text-slate-400 font-body text-sm leading-relaxed">
+                    <span className="text-primary font-black uppercase tracking-widest mr-3 text-xs">Note:</span>
+                    The final submission must be in <span className="text-white font-semibold">PDF format</span> regardless of which template is used. Ensure all fonts are embedded before uploading to the CMT portal.
+                  </p>
+                </div>
               </div>
             </GuidelineAccordion>
 

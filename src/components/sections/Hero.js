@@ -104,9 +104,11 @@ export default function Hero() {
             <Image 
               src="/ieeelogoedit.png" 
               alt="IEEE Kolkata Section Logo" 
-              fill 
+              width={450}
+              height={150}
               sizes="(max-width: 1024px) 100vw, 450px"
-              className="object-contain object-center drop-shadow-2xl relative z-10" 
+              className="object-contain object-center drop-shadow-2xl relative z-10"
+              style={{ width: '100%', height: 'auto' }}
             />
           </div>
 
