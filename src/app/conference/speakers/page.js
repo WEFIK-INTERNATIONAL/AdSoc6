@@ -1,36 +1,57 @@
 "use client";
 
 import { useRef } from 'react';
+import Image from 'next/image';
+import { Mail, MapPin } from 'lucide-react';
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import Section from "@/components/ui/Section";
 import InteractiveDotGrid from "@/components/ui/InteractiveDotGrid";
-import Link from "next/link";
 import UniversalCTA from "@/components/sections/UniversalCTA";
+
+const G = { teal: '#36828E', red: '#E31E24' };
+
+const keynoteSpeakers = [
+  {
+    name: "Seyed-Sajad Ahmadpour",
+    role: "Senior Member IEEE",
+    title: "International Keynote Speaker",
+    org: "Istanbul Atlas University, Istanbul, Türkiye",
+    affiliation: "Department of Computer Engineering, Istanbul Atlas University, 34403 Istanbul, Turkey.",
+    email: "seyed.ahmadpour@atlas.edu.tr",
+    img: "/speakers/Seyed-Sajad.jpg",
+    bio: "Seyed-Sajad Ahmadpour, Senior Member IEEE, is with the Department of Computer Engineering, Istanbul Atlas University, Istanbul, Türkiye. His research interests include quantum-dot cellular automata, silicon dangling-bond logic, reversible and quantum-inspired computing, beyond-CMOS circuit design, nanoscale digital architectures, and AI-assisted hardware optimization. His work focuses on developing energy-efficient, robust, and scalable computational circuits for future nanoelectronic and quantum-compatible systems.",
+    researchInterests: [
+      "Quantum-dot cellular automata",
+      "Silicon dangling-bond logic",
+      "Reversible & quantum-inspired computing",
+      "Beyond-CMOS circuit design",
+      "Nanoscale digital architectures",
+      "AI-assisted hardware optimization"
+    ]
+  }
+];
 
 export default function SpeakersPage() {
   const heroRef = useRef(null);
 
   return (
-    <div className="flex flex-col min-h-screen bg-background relative overflow-hidden text-foreground">
+    <div className="flex flex-col min-h-screen bg-background text-foreground overflow-hidden">
       <Nav />
       
-      <main className="flex-1 relative z-10">
-        {/* Cinematic Hero Section */}
+      <main className="flex-1">
+        {/* ── Hero ─────────────────────────────────────────── */}
         <div 
           ref={heroRef}
-          className="relative h-[400px] md:h-[500px] w-full flex items-center justify-center overflow-hidden border-b border-white/5 bg-[#030508]"
+          className="relative h-[350px] md:h-[400px] w-full flex items-center justify-center overflow-hidden border-b border-white/5 bg-[#030508]"
         >
-          {/* Base Cinematic Gradient */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(54,130,142,0.3)_0%,transparent_70%)] pointer-events-none"></div>
-          
-          {/* Interactive Dot Grid Background */}
+          <div 
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: 'radial-gradient(circle at 50% 100%, rgba(54,130,142,0.22) 0%, transparent 70%)' }}
+          />
           <InteractiveDotGrid />
-          
-          {/* Gradient Overlay for Fade */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/40 to-background pointer-events-none"></div>
 
-          {/* Centered Typography */}
           <div className="container mx-auto px-6 relative z-20 text-center flex flex-col justify-center items-center h-full pointer-events-none">
             <p className="mono text-primary text-sm md:text-base mb-6 tracking-[8px] uppercase font-bold opacity-90">
               Intellectual Leaders
@@ -51,44 +72,117 @@ export default function SpeakersPage() {
           </div>
         </div>
 
-        {/* Revealing Soon Section */}
-        <Section className="py-48 md:py-64 relative overflow-hidden">
-          <div className="absolute inset-0 medical-grid opacity-10 pointer-events-none"></div>
+        {/* ── Content (Wider wrapper max-w-5xl, centered card style) ───────── */}
+        <div className="mx-auto px-6 max-w-5xl py-20 md:py-28 w-full">
           
-          <div className="container mx-auto px-6 text-center relative z-10">
-            <div className="inline-block relative">
-              {/* Outer Glow */}
-              <div className="absolute inset-0 bg-primary/20 blur-[60px] rounded-full animate-pulse"></div>
-              
-              <div className="relative glass-dark border border-white/10 rounded-[40px] px-12 py-20 md:px-24 md:py-32 backdrop-blur-3xl">
-                <p className="mono text-primary text-sm md:text-base mb-8 tracking-[10px] uppercase font-bold">
-                    Global Visionaries
-                </p>
-                <h2 className="text-5xl md:text-7xl lg:text-8xl font-heading text-white leading-tight mb-8">
-                    Revealing <span className="text-gradient-primary">Soon</span>
-                </h2>
-                <div className="max-w-2xl mx-auto">
-                    <div className="h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent mb-8"></div>
-                    <p className="text-slate-400 text-lg md:text-xl font-body leading-relaxed opacity-80">
-                        We are finalizing a lineup of world-class experts, researchers, and pioneers in AI-Driven Smart Healthcare. Stay tuned as we unveil our keynote and invited speakers.
-                    </p>
+          {/* Speakers List */}
+          <div className="space-y-16">
+            {keynoteSpeakers.map((speaker, idx) => (
+              <Section key={idx}>
+                <div 
+                  className="flex flex-col md:flex-row gap-8 md:gap-12 items-start rounded-3xl p-8 md:p-12 backdrop-blur-md border border-white/5 animate-fade-in"
+                  style={{
+                    background: 'rgba(15, 17, 23, 0.45)',
+                    boxShadow: '0 20px 40px rgba(0, 0, 0, 0.35)',
+                  }}
+                >
+                  
+                  {/* Speaker Image Column */}
+                  <div className="w-full md:w-[240px] shrink-0">
+                    <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden border border-white/10 bg-slate-950 shadow-lg">
+                      <Image
+                        src={speaker.img}
+                        alt={speaker.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 240px"
+                        className="object-cover transition-transform duration-700 hover:scale-105"
+                        priority
+                      />
+                    </div>
+                  </div>
+
+                  {/* Speaker Info Column */}
+                  <div className="flex-1 flex flex-col justify-start w-full">
+                    <div>
+                      {/* Badge / Category */}
+                      <span className="font-accent text-[0.65rem] font-bold tracking-[0.2em] uppercase text-primary mb-3 block">
+                        {speaker.title}
+                      </span>
+
+                      {/* Speaker Name */}
+                      <h3 className="text-3xl md:text-5xl font-heading text-white tracking-tight uppercase mb-2 leading-none">
+                        {speaker.name}
+                      </h3>
+
+                      {/* Role & Org */}
+                      <p className="mono text-[10px] text-slate-400 font-medium tracking-wide mb-6">
+                        {speaker.role} &nbsp;·&nbsp; <span className="text-primary">{speaker.org}</span>
+                      </p>
+
+                      {/* Bio */}
+                      <p className="text-slate-300 font-body leading-relaxed text-sm md:text-base mb-8">
+                        {speaker.bio}
+                      </p>
+                    </div>
+
+                    {/* Details Section */}
+                    <div className="border-t border-white/5 pt-6 mt-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      {/* Affiliation info */}
+                      <div className="flex items-start gap-2.5">
+                        <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                        <div>
+                          <span className="mono text-[8px] text-slate-500 font-bold tracking-wider block mb-1">Affiliation</span>
+                          <span className="text-xs text-slate-300 font-medium leading-relaxed block">{speaker.affiliation}</span>
+                        </div>
+                      </div>
+
+                      {/* Direct Contact info */}
+                      <div className="flex items-start gap-2.5">
+                        <Mail className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                        <div>
+                          <span className="mono text-[8px] text-slate-500 font-bold tracking-wider block mb-1">Direct Contact</span>
+                          <a 
+                            href={`mailto:${speaker.email}`}
+                            className="text-xs text-primary hover:text-white transition-colors font-mono tracking-wide hover:underline block"
+                          >
+                            {speaker.email}
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
                 </div>
-              </div>
-            </div>
+              </Section>
+            ))}
           </div>
 
-          {/* Background Decorative Numbers (Time/Data feel) */}
-          <div className="absolute top-1/2 left-10 -translate-y-1/2 mono text-[10px] text-white/5 space-y-4 hidden lg:block">
-            {Array.from({ length: 10 }).map((_, i) => (
-                <p key={i}>SCAN_DATA_NODE_0{i}_ACTIVE</p>
-            ))}
-          </div>
-          <div className="absolute top-1/2 right-10 -translate-y-1/2 mono text-[10px] text-white/5 space-y-4 hidden lg:block text-right">
-            {Array.from({ length: 10 }).map((_, i) => (
-                <p key={i}>REVEAL_SEQUENCE_PENDING_0{i}</p>
-            ))}
-          </div>
-        </Section>
+          {/* Coming Soon Notice */}
+          <Section>
+            <div className="mt-20 flex justify-center">
+              <div 
+                className="w-full max-w-2xl rounded-3xl p-8 text-center"
+                style={{
+                  background: 'rgba(15,17,23,0.4)',
+                  border: '1px solid rgba(255,255,255,0.06)',
+                  backdropFilter: 'blur(16px)',
+                }}
+              >
+                <p 
+                  className="mono text-[0.65rem] font-bold tracking-[0.25em] uppercase mb-2.5"
+                  style={{ color: G.teal }}
+                >
+                  Global Visionaries
+                </p>
+                <p className="text-slate-400 text-xs md:text-sm font-body leading-relaxed max-w-md mx-auto">
+                  We are finalizing a lineup of world-class experts, researchers, and pioneers in AI-Driven Smart Healthcare. Additional keynote and invited speakers will be announced soon.
+                </p>
+              </div>
+            </div>
+          </Section>
+
+        </div>
 
         <UniversalCTA />
       </main>
