@@ -233,7 +233,7 @@ export default function CFPPage() {
                 }}
               >
                 <Image
-                  src="/CFP_14072026.png"
+                  src="/CFP14082026.png"
                   alt="ADSoC 6.0 Call for Papers Poster"
                   width={1200}
                   height={1697}
@@ -248,7 +248,7 @@ export default function CFPPage() {
           <Section>
             <div className="flex justify-center mb-16">
               <a
-                href="/CFP_14072026.pdf"
+                href="/CFP14082026.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-4 px-10 py-5 rounded-2xl font-bold text-sm tracking-[3px] uppercase transition-all duration-300 hover:scale-105"
