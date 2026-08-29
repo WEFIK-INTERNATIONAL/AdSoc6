@@ -109,13 +109,13 @@ export default function GuidelinesPage() {
                   </table>
                 </div>
 
-                <div className="p-8 rounded-[32px] bg-white/[0.03] border border-white/5 border-l-4 border-l-accent relative overflow-hidden">
+                {/* <div className="p-8 rounded-[32px] bg-white/[0.03] border border-white/5 border-l-4 border-l-accent relative overflow-hidden">
                   <div className="absolute inset-0 plus-pattern opacity-[0.05]"></div>
                   <p className="relative z-10 text-slate-200 italic font-body text-lg leading-relaxed">
                     <span className="text-accent font-black uppercase tracking-widest mr-4 not-italic">Note:</span>
                     One Author, Indian/Foreign (Academia/Industry), can register the second paper with <strong className="text-white">50% of the registration fees</strong> for inclusion in the conference proceedings. A separate registration must be completed for each additional paper beyond the first two.
                   </p>
-                </div>
+                </div> */}
               </div>
             </GuidelineAccordion>
 
